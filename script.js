@@ -43,3 +43,39 @@ const upcomingEvents = events.filter((event) => event.date >= today && event.dat
 }));
 
 console.table(upcomingEvents);
+
+//weakmap
+
+// const eventOrganizer = {name: "John"};
+// const weakMap = new weakMap();
+// weakMap.Set(eventOrganizer, "This is John's data");
+// console.log(weakMap.get(eventOrganizer));
+
+// const organizerWeakMap = new WeakMap();
+// let key = {
+//     id: "Zindua Open Day",
+// }
+
+// let organizer = {
+//     attendees: new set("John"),
+// }
+
+// organizerWeakMap.set(key, attendees);
+
+// console.log(organizerWeakMap);
+
+
+//Use destructuring assignment to extract the title, date, 
+//and location properties from each event object and display them in a table format.
+
+// const{title, date, location} = events;
+
+const title = events.title;
+const date = events.date;
+const location = events.location;
+console.log(title);
+console.log(date);
+console.log(location);
+
+//Create a function that adds a new attendee to an event.
+
