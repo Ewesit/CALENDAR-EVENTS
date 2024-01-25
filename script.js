@@ -1,6 +1,6 @@
 const events = [{
     title: "Zindua Open Day",
-    date: new Date(2024, 1, 26),
+    date: new Date(2024, 0, 27),
     location: "CIH",
     attendees: new Set(["John", "Mary", "Peter"]),
 },
