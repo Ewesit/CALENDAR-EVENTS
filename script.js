@@ -46,36 +46,43 @@ console.table(upcomingEvents);
 
 //weakmap
 
-// const eventOrganizer = {name: "John"};
-// const weakMap = new weakMap();
-// weakMap.Set(eventOrganizer, "This is John's data");
-// console.log(weakMap.get(eventOrganizer));
+const eventOrganizers = new WeakMap();
 
-// const organizerWeakMap = new WeakMap();
-// let key = {
-//     id: "Zindua Open Day",
-// }
-
-// let organizer = {
-//     attendees: new set("John"),
-// }
-
-// organizerWeakMap.set(key, attendees);
-
-// console.log(organizerWeakMap);
+events.forEach((event) => {
+  
+  eventOrganizers.get(event.title, 'John');
+});
 
 
-//Use destructuring assignment to extract the title, date, 
-//and location properties from each event object and display them in a table format.
+const organizerForEvent = eventOrganizers.get('Zindua Open Day');
+console.log(`Organizer for Zindua Open Day: ${organizerForEvent}`);
 
-// const{title, date, location} = events;
 
-const title = events.title;
-const date = events.date;
-const location = events.location;
-console.log(title);
-console.log(date);
-console.log(location);
+//deconstructing assignment
 
-//Create a function that adds a new attendee to an event.
+const tableData = events.map(({ title, date, location }) => [title, date.toLocaleString(), location]);
 
+console.log("Event Table:");
+console.table(tableData);
+
+//create a function that adds a new attendee to an event
+function addAttendeeToEvent(eventTitle, attendeeName) {
+    // Find the event with the given title
+    const event = events.find(event => event.title === eventTitle);
+  
+    // Check if the event exists
+    if (event) {
+      // Use the .add() method to add the attendee to the event's attendees Set
+      event.attendees.add(attendeeName);
+      console.log(`${attendeeName} has been added to the attendees of ${eventTitle}.`);
+    } else {
+      console.error(`Event with title "${eventTitle}" not found.`);
+    }
+  }
+  
+  // Example usage:
+  addAttendeeToEvent('Zindua Open Day', 'Lowa');
+//   addAttendeeToEvent('Zindua Open Day', 'New Attendee'); 
+
+
+  
