@@ -127,3 +127,9 @@ console.log("Values of the first event:", eventValues);
 const eventEntries = Object.entries(firstEvent);
 console.log("Properties and values of the first event:", eventEntries);
 
+
+// Use the .forEach() method to iterate over the events array and console.log the title and date of each event.
+events.forEach((event) => {
+    console.log(`Title: ${event.title}, Date: ${event.date.toLocaleString()}`);
+  });
+  
