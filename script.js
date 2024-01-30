@@ -106,8 +106,24 @@ function convertEventsToJSON(eventsArray) {
     return jsonString;
   }
 
-   
+   //Use the Object.keys(), Object.values(), and Object.entries() methods to 
+  //display the properties and values of the first event object in the array.
+  // Assuming events array from previous examples
   const jsonEvents = convertEventsToJSON(events);
   console.log(jsonEvents);
 
    
+const firstEvent = events[0];
+
+// Displaying properties using Object.keys()
+const eventProperties = Object.keys(firstEvent);
+console.log("Properties of the first event:", eventProperties);
+
+// Displaying values using Object.values()
+const eventValues = Object.values(firstEvent);
+console.log("Values of the first event:", eventValues);
+
+// Displaying properties and values using Object.entries()
+const eventEntries = Object.entries(firstEvent);
+console.log("Properties and values of the first event:", eventEntries);
+
