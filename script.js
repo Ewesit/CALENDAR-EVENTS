@@ -85,4 +85,29 @@ function addAttendeeToEvent(eventTitle, attendeeName) {
 //   addAttendeeToEvent('Zindua Open Day', 'New Attendee'); 
 
 
+//You can create a function that converts the event array to a JSON string 
+//using JSON.stringify() while adding 
+//a custom property "formattedDate" to
+ //each event object using the .toJSON() method
+
+function convertEventsToJSON(eventsArray) {
+    const eventsWithFormattedDate = eventsArray.map(event => ({
+      ...event,
+      formattedDate: event.date.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' }),
+    }));
   
+    // Use JSON.stringify with a replacer function to include the formattedDate property
+    const jsonString = JSON.stringify(eventsWithFormattedDate, (key, value) => {
+      // Exclude the date property from the final JSON string
+      if (key === 'date') return undefined;
+      return value;
+    }, 2); // The third argument (2) is for indentation in the JSON string
+  
+    return jsonString;
+  }
+
+   
+  const jsonEvents = convertEventsToJSON(events);
+  console.log(jsonEvents);
+
+   
